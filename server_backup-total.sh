@@ -4,7 +4,8 @@
 \/\/\/\/\/\/\/\ Backup do Servidor de Arquivos - Backup Completo /\/\/\/\/\/\/\/\
 
 \... Michael Martins - 2022 
-    \.... https://github.com/michaelrmartins
+    \... https://github.com/michaelrmartins
+    \... https://github.com/michaelrmartins/server_backup-sh
 
 - Faz backup da pasta de arquivos.
 - Faz backup do tipo "Completo".
