@@ -1,0 +1,10 @@
+*.mp3
+*.mp4
+*.avi
+*.mkv
+*.bmp
+*.iso
+*.cab
+*.exe
+*.db
+*.dll
