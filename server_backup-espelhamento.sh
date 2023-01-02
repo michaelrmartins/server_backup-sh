@@ -6,6 +6,7 @@
 \... Michael Martins - 2022 
     \... https://github.com/michaelrmartins
     \... https://github.com/michaelrmartins/server_backup-sh
+
 - Faz backup da pasta de arquivos.
 - Faz backup do tipo "Espelhamento".
 
@@ -35,8 +36,8 @@ if [ ! -d $logFolder ]; then
 fi 
 
 echo "-----------------------------------">>$logFolder/$logFile
-echo "$logDate - Espelhamento Iniciado">>$logFolder/$logFile
+echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Iniciado">>$logFolder/$logFile
 # rsync command
 rsync -vaz --exclude-from='exclude_list.txt' --delete --recursive $sourceFolder root@$server:$destinationFolder>>$logFolder/$logFile
-echo "$logDate - Espelhamento Finalizado">>$logFolder/$logFile
+echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Finalizado">>$logFolder/$logFile
 echo ".">>$logFolder/$logFile
