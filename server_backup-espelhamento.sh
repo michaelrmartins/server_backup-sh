@@ -38,6 +38,6 @@ fi
 echo "-----------------------------------">>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Iniciado">>$logFolder/$logFile
 # rsync command
-rsync -vaz --exclude-from='exclude_list.txt' --delete --recursive $sourceFolder root@$server:$destinationFolder>>$logFolder/$logFile
+rsync -vaz --exclude-from='exclude_list.txt' --delete --delete-excluded --recursive $sourceFolder root@$server:$destinationFolder>>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Finalizado">>$logFolder/$logFile
 echo ".">>$logFolder/$logFile
