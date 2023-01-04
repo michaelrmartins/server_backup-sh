@@ -34,10 +34,10 @@ logFile="server_backup-mirror.log"
 if [ ! -d $logFolder ]; then
     mkdir -p $logFolder
 fi 
-
+cd /usr/bin
 echo "-----------------------------------">>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Iniciado">>$logFolder/$logFile
 # rsync command
-rsync -vaz --exclude-from='exclude_list.txt' --delete --delete-excluded --recursive $sourceFolder root@$server:$destinationFolder>>$logFolder/$logFile
+rsync -vaz -e "ssh -i /root/.ssh/id_rsa" --exclude-from='/home/server_backup-sh/exclude_list.txt' --delete --delete-excluded --recursive $sourceFolder root@$server:$destinationFolder>>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Finalizado">>$logFolder/$logFile
 echo ".">>$logFolder/$logFile

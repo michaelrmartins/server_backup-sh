@@ -29,7 +29,6 @@ sourceFolder="/tmp/"
 # Log Parameters
 logFolder="/var/log/server_backup-sh"
 logFile="server_backup-full.log"
-
 # Check if Log directory Exists 
 if [ ! -d $logFolder ]; then
     mkdir -p $logFolder
@@ -47,10 +46,10 @@ echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Ok">>$logFolder/$logFil
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Enviando arquivo para o Servidor de Backup $server">>$logFolder/$logFile
 
 # Sending file to Server
-rsync --progress $sourceFolder/$zipFileName.zip root@$server:$destinationFolder>>$logFolder/$logFile
+rsync --progress -e "ssh -i /root/.ssh/id_rsa" $sourceFolder/$zipFileName.zip root@$server:$destinationFolder>>$logFolder/$logFile
 
 # Clean and Exit...
-echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Transferência Finalizada">>$logFolder/$logFile
-echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Removendo arquivos temporários">>$logFolder/$logFile
+echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Transferencia Finalizada">>$logFolder/$logFile
+echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Removendo arquivos temporarios">>$logFolder/$logFile
 rm /tmp/*.zip
-echo echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Backup Total Finalizado">>$logFolder/$logFile
+echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Backup Total Finalizado">>$logFolder/$logFile
