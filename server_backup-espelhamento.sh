@@ -37,7 +37,8 @@ fi
 cd /usr/bin
 echo "-----------------------------------">>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Iniciado">>$logFolder/$logFile
-# rsync command
+
+# rsync command / Full Patch are necessary because cron can't work properly using local file path reference
 rsync -vaz -e "ssh -i /root/.ssh/id_rsa" --exclude-from='/home/server_backup-sh/exclude_list.txt' --delete --delete-excluded --recursive $sourceFolder root@$server:$destinationFolder>>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Finalizado">>$logFolder/$logFile
 echo ".">>$logFolder/$logFile
