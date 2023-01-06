@@ -3,7 +3,7 @@
 '''
 \/\/\/\/\/\/\/\ Backup do Servidor de Arquivos - Backup Completo /\/\/\/\/\/\/\/\
 
-\... Michael Martins - 2022 
+\... Michael Martins - 2022
     \... https://github.com/michaelrmartins
     \... https://github.com/michaelrmartins/server_backup-sh
 
@@ -30,10 +30,10 @@ sourceFolder="/tmp/"
 logFolder="/var/log/server_backup-sh"
 logFile="server_backup-full.log"
 
-# Check if Log directory Exists 
+# Check if Log directory Exists
 if [ ! -d $logFolder ]; then
     mkdir -p $logFolder
-fi 
+fi
 
 # Backup Begin!!!
 echo "-----------------------------------">>$logFolder/$logFile
@@ -46,7 +46,7 @@ echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Compactação Finalizad
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Ok">>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Enviando arquivo para o Servidor de Backup $server">>$logFolder/$logFile
 
-# Sending file to Server 
+# Sending file to Server
 rsync --progress -e "ssh -i /root/.ssh/id_rsa" $sourceFolder/$zipFileName.zip root@$server:$destinationFolder>>$logFolder/$logFile
 
 # Clean and Exit...

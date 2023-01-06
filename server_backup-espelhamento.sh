@@ -3,7 +3,7 @@
 '''
 \/\/\/\/\/\/\/\ Backup do Servidor de Arquivos - Espelhamento /\/\/\/\/\/\/\/\
 
-\... Michael Martins - 2022 
+\... Michael Martins - 2022
     \... https://github.com/michaelrmartins
     \... https://github.com/michaelrmartins/server_backup-sh
 
@@ -30,10 +30,10 @@ sourceFolder="/home/compartilhamentos/"
 logFolder="/var/log/server_backup-sh"
 logFile="server_backup-mirror.log"
 
-# Check if Log directory Exists 
+# Check if Log directory Exists
 if [ ! -d $logFolder ]; then
     mkdir -p $logFolder
-fi 
+fi
 cd /usr/bin
 echo "-----------------------------------">>$logFolder/$logFile
 echo "`TZ='America/Sao_Paulo' date +%d/%m/%Y-%H:%M:%S` - Espelhamento Iniciado">>$logFolder/$logFile
